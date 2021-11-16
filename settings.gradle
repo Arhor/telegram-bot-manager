@@ -1,0 +1,6 @@
+rootProject.name = "telegram-bot-manager"
+
+include ":app-client"
+include ":app-server"
+
+enableFeaturePreview("VERSION_CATALOGS")

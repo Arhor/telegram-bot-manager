@@ -1,0 +1,46 @@
+[versions]
+gradle                       = "7.3"
+java                         = "17"
+flyway                       = "8.0.4"
+kotlin                       = "1.6.0"
+mapstruct                    = "1.4.2.Final"
+spring-boot                  = "2.5.6"
+spring-dependency-management = "1.0.11.RELEASE"
+telegrambots                 = "5.4.0"
+testcontainers               = "1.16.0"
+
+[libraries]
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib" }
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
+
+flyway-core = { module = "org.flywaydb:flyway-core" }
+
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+
+spring-context-indexer = { module = "org.springframework:spring-context-indexer" }
+spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-data-jdbc = { module = "org.springframework.boot:spring-boot-starter-data-jdbc" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-starter-telegrambots = { module = "org.telegram:telegrambots-spring-boot-starter", version.ref = "telegrambots" }
+
+postgresql = { module = "org.postgresql:postgresql" }
+
+telegrambots-extensions = { module = "org.telegram:telegrambotsextensions", version.ref = "telegrambots" }
+
+testcontainers-junit = { module = "org.testcontainers:junit-jupiter" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+
+flyway = { id="org.flywaydb.flyway", version.ref = "flyway" }
+
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot"}
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management"}
