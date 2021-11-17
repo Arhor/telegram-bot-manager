@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "dev.arhor.telegram"
-description = "telegram-bot-manager"
+description = "telegram-bot-manager-server"
 
 val javaVersion = libs.versions.java.get()
 
@@ -48,16 +48,24 @@ dependencies {
 
     developmentOnly(libs.spring.boot.devtools)
 
+    implementation("de.codecentric:spring-boot-admin-starter-client:2.5.3")
+    implementation("de.codecentric:spring-boot-admin-starter-server:2.5.3")
+    implementation("de.codecentric:spring-boot-admin-server-ui:2.5.4")
+//    implementation("de.codecentric:spring-boot-admin-server-ui-login:1.5.7")
+
     implementation(libs.kotlin.reflect)
     implementation(libs.kotlin.stdlib.jdk8)
     implementation(libs.flyway.core)
     implementation(libs.spring.boot.starter.actuator)
     implementation(libs.spring.boot.starter.data.jdbc)
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation(libs.spring.boot.starter.web)
     implementation(libs.spring.boot.starter.telegrambots)
     implementation(libs.telegrambots.extensions)
 
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation("org.springframework.security:spring-security-test")
     testImplementation(libs.testcontainers.junit)
     testImplementation(libs.testcontainers.postgresql)
 }
@@ -108,4 +116,8 @@ tasks {
     withType<Test> {
         useJUnitPlatform()
     }
+
+//    withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
+//        exclude { developmentOnly.resolvedConfiguration.files.contains(it.file) }
+//    }
 }

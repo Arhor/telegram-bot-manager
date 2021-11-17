@@ -27,6 +27,21 @@ spring:
   profiles:
     active: ${SPRING_ACTIVE_PROFILES:development}
 
+  autoconfigure:
+    exclude:
+      - de.codecentric.boot.admin.server.config.AdminServerHazelcastAutoConfiguration
+
+  thymeleaf:
+    check-template-location: false
+
+  boot:
+    admin:
+      context-path: /admin
+      client:
+        url: http://localhost:${server.port}${spring.boot.admin.context-path}
+        username: sba-client
+        password: s3cret
+
   jmx:
     enabled: false
 
@@ -56,3 +71,11 @@ spring:
     enabled: true
     baseline-on-migrate: true
     baseline-version: 0.0
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_CLIENT_SECRET}
